@@ -1,0 +1,732 @@
+<html>
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <title>COCOA動作チェッカー</title>
+    <meta property="og:url" content="https://daisuke-nogami.github.io/cocoa-checker/">
+    <meta property="og:title" content="COCOA動作チェッカー">
+    <meta property="og:image" content="https://daisuke-nogami.github.io/cocoa-checker/assets/OGP.png">
+    <meta property="og:description" content="接触確認アプリCOCOAの動作状況をチェックするサービスです。">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="signal-checker.css" />
+    </head>
+<body>
+  <script src="signal-checker.js">
+  </script>
+
+  <article class="window_box_boot" id="1_1">
+    <div style="height: 24px"></div>
+    <div class="text_16px_150p" style="text-align: right; margin-right: 23px;" onclick="help_window_toggle('operator');">
+      よくあるご質問
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+      <img src="./assets/logo.svg" class="logo_pc" alt="COCOA動作チェッカー" />
+      <img src="./assets/top.svg" class="logo_sp" alt="COCOA動作チェッカー" />
+      <div style="height: 40px"></div>
+      <div class="heading_16px_150p_bold">
+        「起動する」ボタンを押し、<br />押下後に表示されるダイアログで「許可」を押してください。
+      </div>
+      <div style="height: 40px"></div>
+      <div class="touch_button" onclick="check_enviroment();">
+        <div class="touch_button_inner">起動する</div>
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('operator')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_boot" id="2_1">
+    <div style="height: 24px"></div>
+    <div class="text_16px_150p" style="text-align: right; margin-right: 23px;" onclick="help_window_toggle('operator');">
+      よくあるご質問
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+      <img src="./assets/logo.svg" class="logo_pc" alt="COCOA動作チェッカー" />
+      <img src="./assets/top.svg" class="logo_sp" alt="COCOA動作チェッカー" />
+      <div style="height: 40px"></div>
+      <div class="heading_16px_150p_bold">
+        COCOA動作チェッカーは、Android端末にのみ対応しています。<br />
+        ご利用の端末ではお使いいただけません。
+      </div>
+      <div style="height: 40px"></div>
+      <div class="touch_button" onclick="change_window('operator');">
+        <div class="touch_button_inner">TOPにもどる</div>
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('operator')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_boot" id="2_2">
+    <div style="height: 24px"></div>
+    <div class="text_16px_150p" style="text-align: right; margin-right: 23px;" onclick="help_window_toggle('operator');">
+      よくあるご質問
+    </div>
+    <div class="window_box_content">
+
+      <div style="height: 80px"></div>
+      <img src="./assets/logo.svg" class="logo_pc" alt="COCOA動作チェッカー" />
+      <img src="./assets/top.svg" class="logo_sp" alt="COCOA動作チェッカー" />
+      <div style="height: 40px"></div>
+      <div class="heading_20px_150p_bold">
+        ご利用の環境では、本サービスをお使いいただけません。<br />
+        下記の項目を確認し設定してください。
+      </div>
+      <div style="height: 32px"></div>
+    </div>
+
+    <div> <!-- style="overflow-y: scroll; height: 40%;" -->
+      <div class="accordion_header" id="reason_1_header" onclick='toggle_accordion("reason_1");'>
+        <div class="heading_20px_150p_bold" style="text-align: left;">Android 6.0以降のバージョンが必要です</div>
+        <img src="./assets/arrow_lower.svg" style="margin-right: 0px; margin-left: auto;" />
+      </div>
+      <div class="accordion_content" id="reason_1_content">
+        <div class="text_16px_150p">
+          ご利用の環境を、Android 6.0以降にアップグレードしてください。
+        </div>
+      </div>
+
+      <div style="height: 8px"></div>
+
+      <div class="accordion_header" id="reason_2_header" onclick='toggle_accordion("reason_2");'>
+        <div class="heading_20px_150p_bold" style="text-align: left;">最新版のChromeが必要です</div>
+        <img src="./assets/arrow_lower.svg" style="margin-right: 0px; margin-left: auto;" />
+      </div>
+      <div class="accordion_content" id="reason_2_content">
+        <div class="text_16px_150p">
+          <ol>
+            <li>Playストアアプリを開きます。</li>
+            <li><b>［マイアプリ＆ゲーム］</b>をタップします。</li>
+            <li><b>［アップデート］</b>でChromeを探します。</li>
+            <li>Chromeの横にある［更新］をタップします。</li>
+          </ol>
+        </div>
+      </div>
+
+      <div style="height: 8px"></div>
+
+      <div class="accordion_header" id="reason_3_header" onclick='toggle_accordion("reason_3");'>
+        <div class="heading_20px_150p_bold" style="text-align: left;">Chromeのテスト中機能を有効にする必要があります</div>
+        <img src="./assets/arrow_lower.svg" style="margin-right: 0px; margin-left: auto;" />
+      </div>
+      <div class="accordion_content" id="reason_3_content">
+        <div class="text_16px_150p">
+          <ul>
+            <li>
+              アドレス <input type="text" value="chrome://flags/#enable-experimental-web-platform-features" id="privileged_url" /> を開きます。<br />
+              <a onclick="open_new_tab_with_privileged_url()">ここをクリック</a>すると、上記のアドレスをクリップボードに格納して新しいウインドウを開くので、アドレス欄に「貼り付け」を行って下さい。
+            </li>
+            <li>
+              画面に表示される<b>［Experimental Web Platform features］</b>(テスト中機能)を<b>［Enabled］</b>(有効)に変えます。
+            </li>
+          </ul>
+          <div style="text-align: center;">
+            <img src="./assets/reason3_screen1.png" style="width: 458px;" />
+          </div>
+          <ul>
+            <li>
+              画面下部に現れる<b>［Relaunch］</b>ボタンをタップします。
+            </li>
+          </ul>
+          <div style="text-align: center;">
+            <img src="./assets/reason3_screen2.png" style="width: 245px;" />
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 8px"></div>
+
+      <div class="accordion_header" id="reason_4_header" onclick='toggle_accordion("reason_4");'>
+        <div class="heading_20px_150p_bold" style="text-align: left;">Chromeの設定でBluetoothのスキャンを許可する必要があります</div>
+        <img src="./assets/arrow_lower.svg" style="margin-right: 0px; margin-left: auto;" />
+      </div>
+      <div class="accordion_content" id="reason_4_content">
+        <div class="text_16px_150p">
+          <ul>
+            <li>アドレスバーにある鍵マークをタップして下さい。</li>
+            <li><b>［Bluetoothのスキャン - ブロック中］</b>と表示されている場合には、
+              <ol>
+                <li><b>［サイトの設定］</b>をタップしてください。</li>
+                <li><b>［データを削除してリセット］</b>をタップしてください。</li>
+              </ol>
+            </li>
+            <li><b>［Bluetoothのスキャン - ブロック中］</b>と表示されていない場合には、
+              <ol>
+                <li><b>［戻る］</b>ボタンをタップしてください。</li>
+                <li><b>［…］</b>をタップし<b>［設定］</b>をタップしてください。</li>
+                <li><b>［サイトの設定］</b>をタップしてください。</li>
+                <li><b>［Bluetoothのスキャン］</b>をタップしてください。</li>
+                <li>スイッチをタップし、<b>［サイトから近くにあるBluetoothデバイスの検出を求められた時に確認する（推奨）］</b>と表示されるようにしてください。</li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="height: 8px"></div>
+
+      <div class="accordion_header" id="reason_5_header" onclick='toggle_accordion("reason_5");'>
+        <div class="heading_20px_150p_bold" style="text-align: left;">BluetoothをONにして、Chromeに位置情報の利用を許可する必要があります</div>
+        <img src="./assets/arrow_lower.svg" style="margin-right: 0px; margin-left: auto;" />
+      </div>
+      <div class="accordion_content" id="reason_5_content">
+        <div class="text_16px_150p">
+          <ul>
+            <li>端末のBluetoothのON/OFFを確認してください。</li>
+            <li>BluetoothがOFFになっていたらONにしてください。</li>
+            <li>BluetoothがONになっていたら、Chromeの位置情報利用が許可されていませんので、
+              <ul>
+                <li>Androidの<b>［設定］</b>を開きます。</li>
+                <li><b>［アプリ］</b>を開きます。</li>
+                <li><b>［Chrome］</b>を探して開きます。</li>
+                <li><b>［権限］</b>をタップし、<b>［位置情報］</b>を許可します。</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="height: 8px"></div>
+
+      <div class="accordion_header" id="reason_6_header" onclick='toggle_accordion("reason_6");'>
+        <div class="heading_20px_150p_bold" style="text-align: left;">信号の計測回数が少なくなっています</div>
+        <img src="./assets/arrow_lower.svg" style="margin-right: 0px; margin-left: auto;" />
+      </div>
+      <div class="accordion_content" id="reason_6_content">
+        <div class="text_16px_150p">
+          この端末にBluetoothで接続している機器（スピーカー、ヘッドセットなど）がある場合は、切断してください。<br />
+          Bluetoothで接続している機器がないときにもこのエラーが表示される場合は、Bluetoothの計測性能が不足しているため、ご利用の端末ではお使いいただけません。
+        </div>
+      </div>
+
+<!--
+      <div class="accordion_header" id="reason_6_header" onclick='toggle_accordion("reason_6");'>
+        <div class="heading_20px_150p_bold" style="text-align: left;">Bluetoothのスキャンを許可してください</div>
+        <img src="./assets/arrow_lower.svg" style="margin-right: 0px; margin-left: auto;" />
+      </div>
+      <div class="accordion_content" id="reason_6_content">
+        <div class="text_16px_150p">
+          ダイアログで「許可」が押されませんでした。TOPにもどり、再度操作して下さい。
+        </div>
+      </div>
+ -->
+
+      <div style="height: 40px"></div>
+      <div class="touch_button" onclick="change_window('operator');">
+        <div class="touch_button_inner">TOPにもどる</div>
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('operator')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_boot" id="3_2">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+        <div class="loader2" id="loader2">Loading...</div>
+      <div style="height: 40px"></div>
+      <div class="heading_28px_150p_bold">
+        COCOA動作チェッカーを起動中です。
+      </div>
+      <div style="height: 80px"></div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　ご利用にあたって<br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+
+  <article class="window_box_main" id="4_1">
+    <div style="height: 20px"></div>
+    <div style="text-align: right; margin-right: 23px;">
+      <img src="./assets/icon_FAQ.svg" class="faq_mark" onclick="faq_window_toggle('enduser');" />
+    </div>
+    <div class="window_box_content">
+      <div style="height: 70px"></div>
+      <img src="./assets/top.svg" alt="COCOA動作チェッカー" />
+      <div style="height: 18px"></div>
+      <div class="heading_32px_150p_bold">
+        接触確認アプリが<br />
+        正常に機能しているかを確認しよう。
+      </div>
+      <div style="height: 24px"></div>
+      <div class="text_16px_150p" style="text-align: center;">
+        あなたと、あなたの大切な人を守るために。<br />
+        ここでは、スマートフォンに入っている「接触確認アプリ（COCOA）」が正常に機能しているかを確認することができます。
+      </div>
+      <div style="height: 40px"></div>
+      <div class="touch_button" onclick="set_detect_timer();">
+        <div class="touch_button_inner">確認する</div>
+      </div>
+      <div style="height: 80px"></div>
+      <div class="column_box">
+        <div style="height: 32px"></div>
+        <div style="display: flex; justify-content: center; align-items: center; padding: 20px;">
+          <img src="./assets/app_icon.png" height="62px" />
+          <div class="heading_20px_150p_bold" style="text-align: center; padding-left: 14px;">
+            新型コロナウイルス接触確認アプリとは
+          </div>
+        </div>
+        <div class="content_box">
+          <div class="content_text_half" id="2_top_content_2_left">
+            <h3 class="heading_mark">できること</h3>
+            <div class="text_14px_150p">
+              厚生労働省が公式提供する、新型コロナウイルス陽性登録した人との接触をお知らせするアプリです。<br />
+              本アプリを端末に設定した人どうしの接触（1m以内、15分以上）を記録します。新型コロナウイルスに陽性と判定されたら本アプリに匿名で登録することができます。最近接触した人の中に陽性登録した人がいたら、通知と適切な行動をお知らせします。
+            </div>
+          </div>
+          <div class="content_text_half" id="2_top_content_2_right">
+            <h3 class="heading_mark">ダウンロード</h3>
+            <ul style="display: flex;  list-style: none; padding: 0px; margin-left: 20px;">
+              <li class="text_16px_150p" style="padding: 5px;">
+                Android版<br />
+                <img src="./assets/qr_android.png" /><br />
+                <img src="./assets/google-play-badge.png" style="width: 100px" />
+              </li>
+              <li class="text_16px_150p" style="padding: 5px;">
+                iOS版<br />
+                <img src="./assets/qr_ios.png" /><br />
+                <img src="./assets/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" style="width: 100px"  />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('enduser')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_main" id="5_1">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+<!--
+      <div class="frame_prepare">
+        <img class="frame_tablet" src="./assets/frame_tablet.svg" />
+        <img class="frame_hand_prepare" id="frame_hand_prepare" src="./assets/frame_hand.svg" />
+      </div>
+  -->
+        <div class="loader" id="loader">Loading...</div>
+      <div style="height: 40px"></div>
+      <div class="heading_28px_150p_bold">
+        信号確認の準備ができるまで、<br />
+        スマホを画面から離してお待ちください。
+      </div>
+      <div style="height: 80px"></div>
+    </div>
+    <div class="column_box">
+      <div style="height: 32px"></div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <div class="heading_20px_150p_bold" style="text-align: center;">
+          厚生労働省からのお知らせ
+        </div>
+      </div>
+      <div class="content_box">
+        <div class="content_text_full">
+          <div class="text_14px_150p">
+            冬のコロナ対策へのご協力をお願いします！<br />
+  いつも感染予防ありがとうございます。マスクの着用・3密の回避・手洗い・消毒など、基本的な対策の徹底、会話の際にはいつでもマスクをつけて、会食の際は「静かなマスク会食」をお願いします。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　ご利用にあたって<br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_main" id="6_1">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" onclick="faq_window_toggle('starting_detection');" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+      <div class="frame_prepare">
+        <img class="frame_tablet" src="./assets/frame_tablet.svg" />
+        <img class="frame_hand_detect" id="frame_hand_detect" src="./assets/frame_hand.svg" />
+      </div>
+<!--
+      <img src="./assets/frame.svg" />
+  -->
+      <div style="height: 80px"></div>
+      <div class="heading_28px_150p_bold">
+        信号確認の準備ができました。<br />
+        計測したいスマホを画面に近づけてください。
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('starting_detection')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_main" id="7_1">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" onclick="faq_window_toggle('detect_succeed');" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+      <img src="./assets/icon_check.svg" style="height: 100px;" />
+      <div style="height: 80px"></div>
+      <div class="heading_28px_150p_bold_narrow">
+        接触確認アプリが<br />
+        正常に機能していることを確認しました。
+      </div>
+      <div style="height: 24px"></div>
+      <div class="text_16px_150p" style="text-align: center;">
+        あなたのスマートフォンに入っている「接触確認アプリ（COCOA）」は正常に機能しています。今後もBluetoothをONにした状態で、安全にお過ごしください。
+      </div>
+      <div style="height: 40px"></div>
+      <div class="touch_button" onclick="change_window('enduser');">
+        <div class="touch_button_inner">TOPにもどる</div>
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('detect_succeed')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_main" id="7_2">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" onclick="faq_window_toggle('detect_failed');" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+        <img src="./assets/icon_error.svg" style="height: 100px;" />
+      <div style="height: 80px"></div>
+      <div class="heading_28px_150p_bold_narrow">
+        接触確認アプリが<br />
+        正常に機能していることを確認できませんでした。
+      </div>
+      <div style="height: 24px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        <ul>
+          <li>接触確認アプリがインストールされているか確認してください。</li>
+          <li>BluetoothがONになっているか確認してください。</li>
+          <li>COVID-19 接触通知システムがONになっているか確認してください。</li>
+        </ul>
+      </div>
+      <div style="height: 40px"></div>
+      <div class="touch_button" onclick="change_window('enduser');">
+        <div class="touch_button_inner">TOPにもどる</div>
+      </div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('detect_failed')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_boot" id="8_1">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" onclick="change_window('operator');" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+      <div class="heading_28px_150p_bold" style="text-align: left;">
+        よくあるご質問
+      </div>
+      <div style="height: 40px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 質問文質問文質問文質問文
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        回答回答回答回答回答回答回答回答回答回答
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 質問文質問文質問文質問文
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        回答回答回答回答回答回答回答回答回答回答
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 質問文質問文質問文質問文
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        回答回答回答回答回答回答回答回答回答回答
+      </div>
+      <div style="height: 32px"></div>
+    </div>
+    <div style="height: 40px"></div>
+    <div class="touch_button" onclick="change_window('operator');">
+      <div class="touch_button_inner">もどる</div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="help_window_toggle('')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_main" id="9_1">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" onclick="change_window('enduser');" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div style="height: 80px"></div>
+      <div class="heading_28px_150p_bold" style="text-align: left;">
+        ご利用ガイド
+      </div>
+      <div style="height: 40px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 質問文質問文質問文質問文
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        回答回答回答回答回答回答回答回答回答回答
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 質問文質問文質問文質問文
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        回答回答回答回答回答回答回答回答回答回答
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 質問文質問文質問文質問文
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        回答回答回答回答回答回答回答回答回答回答
+      </div>
+      <div style="height: 32px"></div>
+    </div>
+    <div style="height: 40px"></div>
+    <div class="touch_button" onclick="faq_window_toggle('');">
+      <div class="touch_button_inner">もどる</div>
+    </div>
+    <div class="footer">
+      お問い合わせ　　<a onclick="notice_window_toggle('faq_enduser')">ご利用にあたって</a><br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <article class="window_box_main" id="10_1">
+    <div style="height: 20px"></div>
+    <div class="working_header">
+      <div style="margin-left: 23px;">
+        <img src="./assets/top.svg" alt="COCOA動作チェッカー" />
+      </div>
+      <div style="text-align: right; margin-right: 23px;">
+        <img src="./assets/icon_FAQ.svg" class="faq_mark" />
+      </div>
+    </div>
+    <div class="window_box_content">
+      <div class="heading_28px_150p_bold" style="text-align: left;">
+        ご利用にあたって
+      </div>
+      <div style="height: 40px"></div>
+
+      <div class="text_16px_150p" style="text-align: left;">
+        このウェブサイト（https://●●●●●●●●●●●●●●/ 以下「当サイト」といいます）は、株式会社ディー・エヌ・エー（以下「当社」といいます）が運営しています。当サイトを利用される前に以下の注意点をお読みいただき、ご了解いただいた上でご利用ください。なお、当社は、当サイトの利用条件を予告なしに変更することがありますので、最新のご利用条件をご確認ください。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        1. 免責事項
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        当社は当サイトに掲載された情報について、その完全性、正確性、確実性、有用性等につきいかなる責任も負わないものとし、当サイトの情報に基づくトラブル・損失・損害等の一切の事項に対して、何らの責任を負いません。また、予告なく当サイトの運営の中断、中止や内容の変更等を行うことがありますが、これらにより生じたいかなるトラブル・損失・損害等に対しても当社は一切責任を負いません。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        2. 権利帰属
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        当サイトに掲載される画像その他の情報等にかかる著作権（著作権法第27条及び第28条に定める権利を含む。以下、同じ。）、産業財産権（その登録を受ける権利を含む。）その他一切の権利は、当社（または当社が定める第三者）に帰属します。事前に当社の書面による承諾を得た場合を除き、法令において認められる範囲や、<a href="LICENSE">当サイトのプログラムのライセンス</a>に定める範囲を超えて、これらの情報を利用（複製、翻案、改変、転用、自動公衆送信、アップロード、掲示、送信、頒布、販売、出版、譲渡、貸与を含みますがこれらに限りません。）することは禁止します。また、当サイトをウェブサイト、雑誌書籍、広告などの出版物へ引用転載・掲載をご希望する場合には、当社までその旨をお申出ください。その際、お問い合わせの方のお名前、ご連絡先（住所、電話番号およびメールアドレス）、媒体名、掲載の概要を明記してください。掲載の内容や方法等によっては、引用転載・掲載をお断りすることがありますのでご了承ください。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        3. リンクについて
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        当サイトから、リンクやバナーによって他の外部サイトへ移動できる場合があります。移動された先の外部サイトは当社が運営するものではありません。従って、その内容等につきまして当社は責任を負いかねますのでご了承ください。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        4. 推奨環境について
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        ・タブレット／スマートフォン<br />
+        Android 6.0 以上で動作するChrome（最新版） <br />
+        <br />
+        ※推奨環境以外でのご利用や、推奨環境下でもお客様のwebブラウザの設定によっては、ご利用できない、もしくは正しく表示されない場合がございます。その場合はサポート対象外となりますので予めご了承ください。<br />
+        <br />
+        ■JavaScriptについて<br />
+        当サイトでは、JavaScriptを使用しています。お使いのブラウザでJavaScript機能を無効にされている場合、当サイトは正しく機能しません。ご覧になる際にはブラウザ設定でJavaScriptを有効にしてください。<br />
+        <br />
+        ※設定方法は各ブラウザのヘルプをご参照ください。<br />
+        <br />
+        ■スタイルシートについて<br />
+        当サイトではスタイルシートを使用しております。お使いのブラウザでスタイルシートを無効にされている場合、正しく表示されません。ご覧になる際にはブラウザ設定でスタイルシートを有効にしてください。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        5. お問い合わせ
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        当サイトについてのお問い合わせは下記にお願いいたします。<br />
+        <br />
+        ()<br />
+        ◯◯◯@dena.com<br />
+        <br />
+        ※お手数をお掛けしますが、件名に「【COCOA動作チェッカー】ウェブサイトに関するお問い合わせ」とご記載をお願いいたします。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        6.プライバシーポリシー
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        当サイトでは、当サイトについてのお問い合わせをいただくときに限って、お問い合わせいただいた方の個人情報を収集・利用します。個人情報の収集・利用に関する当社のプライバシーポリシーは下記よりご確認いただけます。<br />
+        <a href="https://dena.com/jp/privacy/">https://dena.com/jp/privacy/</a>
+      </div>
+      <div style="height: 32px"></div>
+
+    </div>
+    <div style="height: 40px"></div>
+    <div class="touch_button" onclick="notice_window_toggle('');">
+      <div class="touch_button_inner">もどる</div>
+    </div>
+    <div style="height: 20px"></div>
+    <div class="footer">
+      お問い合わせ　　ご利用にあたって<br />
+      Copyright &copy; DeNA Co., Ltd. All rights reserved.
+    </div>
+  </article>
+
+  <nav id="debug_window" class="debug">
+    <details class="debug" style="text-align: left;">
+      <summary class="debug">デバッグ情報</summary>
+      <details class="debug" style="text-align: left;">
+        <summary class="debug">測定回数(1~3秒前):</summary>
+          <input type="text" id="debug_terminal_count1" value="" size="2" /> -
+          <input type="text" id="debug_terminal_count2" value="" size="2" /> -
+          <input type="text" id="debug_terminal_count3" value="" size="2" />
+      </details>
+      <details class="debug" style="text-align: left;">
+        <summary class="debug">測定結果:</summary>
+          1秒前 <input type="text" id="debug_terminal_rssi1" value="" size="25" /><br />
+          2秒前 <input type="text" id="debug_terminal_rssi2" value="" size="25" /><br />
+          3秒前 <input type="text" id="debug_terminal_rssi3" value="" size="25" />
+      </details>
+      <details class="debug" style="text-align: left;">
+        <summary class="debug">性能確認:</summary>
+        閾値 <input type="text" id="debug_performance_criteria" value="" size="2" />回/秒 /
+        開始時刻 <input type="text" id="debug_performance_check_start_time" value="" size="2" />秒<br />
+        判定結果 <input type="text" id="debug_performance_result" value="" size="2" />回 /
+        判定時刻 <input type="text" id="debug_performance_check_end_time" value="" size="2" />秒
+      </details>
+      <details class="debug" style="text-align: left;">
+        <summary class="debug">動作判定:</summary>
+        閾値 <input type="text" id="debug_detect_threshold" value="" size="2" />dB /
+        開始時刻 <input type="text" id="debug_detect_start_time" value="" size="2" />秒<br />
+        判定条件 <input type="text" id="debug_detect_criteria" value="" size="2" />dB /
+        判定時刻 <input type="text" id="debug_detect_found_time" value="" size="2" />秒
+      </details>
+      <details class="debug" style="text-align: left;">
+        <summary class="debug">デバッグ用コマンド:</summary>
+        <input type="button" value="表示強制切り替え" onclick="toggle_visible();" /><br />
+        <input type="button" value="動作ログ送信" onclick="sendDebugLog();" />
+        結果 : <input type="text" id="debug_sendlog" value="" size="2" /><br />
+        <input type="button" value="サーバーから再読込" onclick="location.reload(true);" />
+      </details>
+    </details>
+  </nav>
+
+  <script>
+    // 最初のウインドウを起動時に可視にする
+    document.getElementById("1_1").style.visibility = 'visible';
+    // URLに ?debug と入っていたらデバッグ用ウインドウを表示する
+    if (document.location.search.substring(1) == 'debug') {
+      document.getElementById("debug_window").style.visibility = 'visible';
+      debug_mode = true;
+    }
+  </script>
+
+</body>
+</html>

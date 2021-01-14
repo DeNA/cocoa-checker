@@ -1,0 +1,446 @@
+/* 色指定 */
+:root {
+  /* colors */
+  --primary_color: #FF4D77;
+  --secondary_color: #426BD4;
+  --white: #FFFFFF;
+  --BG: #FFFFFF;
+  --gray: #616274;
+  --dark_gray: #D0D2E0;
+  --light-gray: #EFF1F8;
+  --black: #373845;
+  --secondary_color_dark: #2247A7;
+}
+
+/* 文書全体での共通書式 */
+body {
+  color: var(--black);
+  margin: 0px;
+  overflow-y: hidden;
+}
+a {
+  color: var(--secondary_color);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--secondary_color_dark);
+}
+
+/* デバッグ用情報表示場所 */
+nav.debug {
+  visibility: hidden;
+  /* 背景色 */
+  background-color: var(--dark_gray);
+  /* 位置は画面の右下 */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+details.debug {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    padding: 0 0 0 .5em;
+}
+summary.debug {
+    font-weight: bold;
+}
+
+/* 画面幅による切り分け */
+@media screen and (max-width:640px) {
+  /*　画面サイズが640pxまではここを読み込む　*/
+  :root {
+    --window-width: calc(100% - 24px * 2);
+    --window-width-narrow: calc(100% - 24px * 2);
+    --ul_align: column;
+    --half_padding: 32px;
+    --half_width: calc(100% - var(--half_padding) * 2);
+    --full_width: calc(100% - var(--half_padding) * 2);
+    --logo_pc: hidden;
+    --logo_sp: visible;
+    --logo_pc_height: 0px;
+    --logo_sp_height: 29px;
+  }
+}
+@media screen and (min-width:640px) {
+  /*　画面サイズが640px以上はここを読み込む　*/
+  :root {
+    --window-width: 640px;
+    --window-width-narrow: 600px;
+    --ul_align: row;
+    --half_padding: 20px;
+    --half_width: calc(50% - var(--half_padding) * 2);
+    --full_width: calc(100% - var(--half_padding) * 2);
+    --logo_pc: visible;
+    --logo_sp: hidden;
+    --logo_pc_height: 38px;
+    --logo_sp_height: 0px;
+  }
+}
+.logo_pc {
+  visibility: var(--logo_pc);
+  height: var(--logo_pc_height);
+}
+.logo_sp {
+  visibility: var(--logo_sp);
+  height: var(--logo_sp_height);
+}
+
+/* 文字のスタイル */
+.heading_32px_150p_bold {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 150%;
+  text-align: center;
+}
+.heading_28px_150p_bold,
+.heading_28px_150p_bold_narrow {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 150%;
+  text-align: center;
+}
+.heading_28px_150p_bold_narrow {
+  width: var(--window-width-narrow);
+  margin-right: auto;
+  margin-left: auto;
+}
+.heading_20px_150p_bold {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+}
+.heading_16px_150p_bold {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+}
+.text_16px_150p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: left;
+}
+.text_14px_150p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: left;
+  /* 枠との間を020px分空ける */
+/*  padding: var(--half_padding); */
+}
+
+/* 見出しの左脇に付ける線 */
+.heading_mark {
+  border-left: solid 4px var(--black);
+  padding-left: 8px;
+/*  margin-left: var(--half_padding); */
+}
+
+/* 全画面共通のフッタの書式設定 */
+.footer {
+  height: 52px;
+  /* 文字サイズとセンタリングを指定 */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  /* 画面最下部に配置する */
+  position: relative;
+  top: 80px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%);
+}
+
+/* ご利用にあたって 用ポップアップ */
+.notice_popup {
+  /* 背景色 ※別途指定を受ける */
+  background-color: var(--light-gray);
+  /* 画面中央に配置する */
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%);
+  top: 10%;
+  /* 画面の8割を埋める */
+  height: 80%;
+  width: 80%;
+  padding: 0px;
+  /* 境界線は黒で角を丸める */
+  border: 1px solid var(--black);
+  border-radius: 16px;
+  /* 中身は左右センタリングする */
+  text-align: center;
+  /* 最初は表示しない */
+  visibility: hidden;
+  /* 縦にはみ出す場合はスクロールさせて縦にのばさせない */
+  overflow-y: auto;
+  /* 横のスクロールバーは消す */
+  overflow-x: hidden;
+}
+
+/* 表示するオブジェクトを切り替えるための箱 */
+.window_box_boot,
+.window_box_main {
+  /* 画面中央に配置する */
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%);
+  /* フッタ以外の全画面を埋める */
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  /* 中身は左右センタリングする */
+  text-align: center;
+  /* 最初は表示しない */
+  visibility: hidden;
+  /* 縦にはみ出す場合はスクロールさせて縦にのばさせない */
+  overflow-y: auto;
+  /* 横のスクロールバーは消す */
+  overflow-x: hidden;
+}
+
+.window_box_boot {
+  background-color: var(--light-gray);
+}
+
+.window_box_main {
+  background-color: var(--BG);
+}
+
+.window_box_content {
+  width: var(--window-width);
+  margin: 0 auto;
+}
+
+/* 操作をするためのボタン */
+.touch_button {
+  background: var(--secondary_color);
+  box-shadow: 4px 10px 25px rgba(12, 21, 255, 0.25);
+  border-radius: 100px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  height: 48px;
+  width: 263px;
+  margin: 0 auto;
+  text-align: center;
+  display: table;
+  color: var(--white);
+}
+.touch_button:hover {
+  background-color: var(--secondary_color_dark);
+}
+.touch_button_inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* アコーディオン表示 */
+.accordion_header {
+  width: var(--window-width);
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 10px 10px 10px 10px;
+  padding: 24px;
+
+  display: none; /* スクリプトで display: flex; に切り替える */
+  flex-direction: row;
+  align-items: center;
+}
+.accordion_content {
+  width: var(--window-width);
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 0px 0px 10px 10px;
+  border-top: 1px solid var(--dark_gray);
+  padding: 24px;
+
+  text-align: left;
+  display: none;
+}
+
+/* 稼働中ヘッダ */
+.working_header {
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* 厚労省情報 */
+.column_box {
+  background-color: var(--light-gray);
+  width: var(--window-width);
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.content_box {
+  display: flex;
+  justify-content: center;
+  flex-direction: var(--ul_align);
+}
+.content_text_full {
+  text-align: left;
+  width: var(--full_width);
+  padding: var(--half_padding);
+}
+.content_text_half {
+  text-align: left;
+  width: var(--half_width);
+  padding: var(--half_padding);
+}
+
+/* FAQマークの？の色を変える */
+.faq_mark {
+  filter: grayscale(100%);
+}
+.faq_mark:hover {
+  filter: grayscale(0);
+}
+
+/* 動作確認直前にスマホを離して貰うアニメーション / 動作確認時にスマホをかざして貰うアニメーション */
+@keyframes frame_prepare_start {
+  0% {
+    left: calc(50% - (76px / 2) - 14px);
+  }
+  100% {
+    left: calc(100% - 90px);
+  }
+}
+@keyframes frame_detection_start {
+  0% {
+    left: calc(100% - 90px);
+  }
+  100% {
+    left: calc(50% - (76px / 2) - 14px);
+  }
+}
+.frame_prepare {
+  position:relative;
+  height:245px;
+}
+.frame_tablet {
+  position: absolute;
+  top:  0px;
+  left: calc(50% - (229px / 2));
+
+}
+.frame_hand_detect,
+.frame_hand_prepare {
+  position: absolute;
+  top:  106px;
+  left: calc(50% - (76px / 2) - 14px);
+}
+.frame_hand_detect.active {
+  animation: frame_detection_start 4s ease 0s infinite normal forwards paused;
+}
+.frame_hand_prepare.active {
+  animation: frame_prepare_start 3s ease 0s infinite normal forwards paused;
+}
+
+
+/*
+ローディング中のクルクルは他サイトのものを引用
+ */
+
+/*
+Code copyright 2014 Luke Haas https://github.com/lukehaas/css-loaders
+Code released under the MIT license
+https://opensource.org/licenses/mit-license.php
+*/
+.loader,
+.loader:before,
+.loader:after,
+.loader2,
+.loader2:before,
+.loader2:after {
+  border-radius: 50%;
+}
+.loader,
+.loader2 {
+  color: var(--secondary_color);
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:before,
+.loader:after,
+.loader2:before,
+.loader2:after {
+  position: absolute;
+  content: '';
+}
+.loader:before,
+.loader:after {
+  background: var(--BG);
+}
+.loader2:before,
+.loader2:after {
+  background: var(--light-gray);
+}
+.loader:before,
+.loader2:before {
+  width: 5.2em;
+  height: 10.2em;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.1em 5.1em;
+  transform-origin: 5.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader:after,
+.loader2:after {
+  width: 5.2em;
+  height: 10.2em;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 4.9em;
+  -webkit-transform-origin: 0.1em 5.1em;
+  transform-origin: 0.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/*
+ここまで引用
+*/

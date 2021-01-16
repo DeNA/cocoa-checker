@@ -10,6 +10,8 @@
   --light-gray: #EFF1F8;
   --black: #373845;
   --secondary_color_dark: #2247A7;
+  /* size */
+  --loader_size: 5em;
 }
 
 /* 文書全体での共通書式 */
@@ -371,12 +373,11 @@ https://opensource.org/licenses/mit-license.php
 .loader,
 .loader2 {
   color: var(--secondary_color);
-  font-size: 11px;
   text-indent: -99999em;
-  margin: 55px auto;
+  margin: 10px auto;
   position: relative;
-  width: 10em;
-  height: 10em;
+  width: var(--loader_size);
+  height: var(--loader_size);
   box-shadow: inset 0 0 0 1em;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -399,25 +400,25 @@ https://opensource.org/licenses/mit-license.php
 }
 .loader:before,
 .loader2:before {
-  width: 5.2em;
-  height: 10.2em;
-  border-radius: 10.2em 0 0 10.2em;
+  width: calc(var(--loader_size)/2 + 0.2em);
+  height: calc(var(--loader_size) + 0.2em);
+  border-radius: calc(var(--loader_size) + 0.2em) 0 0 calc(var(--loader_size) + 0.2em);
   top: -0.1em;
   left: -0.1em;
-  -webkit-transform-origin: 5.1em 5.1em;
-  transform-origin: 5.1em 5.1em;
+  -webkit-transform-origin: calc(var(--loader_size)/2 + 0.1em) calc(var(--loader_size)/2 + 0.1em);
+  transform-origin: calc(var(--loader_size)/2 + 0.1em) calc(var(--loader_size)/2 + 0.1em);
   -webkit-animation: load2 2s infinite ease 1.5s;
   animation: load2 2s infinite ease 1.5s;
 }
 .loader:after,
 .loader2:after {
-  width: 5.2em;
-  height: 10.2em;
-  border-radius: 0 10.2em 10.2em 0;
+  width: calc(var(--loader_size)/2 + 0.2em);
+  height: calc(var(--loader_size) + 0.2em);
+  border-radius: 0 calc(var(--loader_size) + 0.2em) calc(var(--loader_size) + 0.2em) 0;
   top: -0.1em;
-  left: 4.9em;
-  -webkit-transform-origin: 0.1em 5.1em;
-  transform-origin: 0.1em 5.1em;
+  left: calc(var(--loader_size)/2 - 0.1em);
+  -webkit-transform-origin: 0.1em calc(var(--loader_size)/2 + 0.1em);
+  transform-origin: 0.1em calc(var(--loader_size)/2 + 0.1em);
   -webkit-animation: load2 2s infinite ease;
   animation: load2 2s infinite ease;
 }

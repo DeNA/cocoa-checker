@@ -204,7 +204,23 @@ function check_scan_running() {
   nowtime.setSeconds(nowtime.getSeconds() + 1);
   func_assoc_array(nowtime.getSeconds());
 
-  // デバッグ情報表示をする作業の共通部分
+  // 画面5-1で表示する「周囲のCOCOA台数」を計算して表示するルーチン
+    // 配列の重複を無くす関数
+    function uniq(array) {
+      return array.filter((elem, index, self) => self.indexOf(elem) === index);
+    }
+  var cocoatime = new Date();
+  var device_id_list = [];
+  for (i=0; i<10; i++) {
+    if (terminal_rssi[cocoatime.getSeconds()]) {
+      Array.prototype.push.apply(device_id_list,Object.keys(terminal_rssi[cocoatime.getSeconds()]));
+    }
+    cocoatime.setSeconds(cocoatime.getSeconds()-1);
+  }
+  document.getElementById("present_device_number").innerText = uniq(device_id_list).length;
+
+  // デバッグモードのときの処理
+    // デバッグ情報表示をする作業の共通部分
     function debug_mode_output(target_num) {
       if (terminal_count[debugtime.getSeconds()]) {
         document.getElementById("debug_terminal_count"+target_num).value = terminal_count[debugtime.getSeconds()];

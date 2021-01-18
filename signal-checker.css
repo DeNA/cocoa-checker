@@ -281,7 +281,7 @@ summary.debug {
   justify-content: space-between;
 }
 
-/* 厚労省情報 */
+/* COCOA情報,tips */
 .column_box {
   background-color: var(--light-gray);
   width: var(--window-width);
@@ -303,6 +303,7 @@ summary.debug {
   width: var(--half_width);
   padding: var(--half_padding);
 }
+
 /* tipsのスライドアニメーション */
 @keyframes tipsSlide {
     0% {left: 0;}
@@ -341,6 +342,16 @@ summary.debug {
 }
 .faq_mark:hover {
   filter: grayscale(0);
+}
+
+/* 確認失敗時のメッセージ内のアコーディオン表示 */
+summary.detect_failed_help_message {
+  font-weight: bold;
+  color: var(--secondary_color);
+  text-decoration: underline;
+}
+summary.detect_failed_help_message:hover {
+  color: var(--secondary_color_dark);
 }
 
 /* 動作確認直前にスマホを離して貰うアニメーション / 動作確認時にスマホをかざして貰うアニメーション */

@@ -303,6 +303,37 @@ summary.debug {
   width: var(--half_width);
   padding: var(--half_padding);
 }
+/* tipsのスライドアニメーション */
+@keyframes tipsSlide {
+    0% {left: 0;}
+    28% {left: 0;}
+    33% {left: calc((-100%));}
+
+    61% {left: calc((-100%) * 1);}
+    66% {left: calc((-100%) * 2);}
+
+    95% {left: calc((-100%) * 2);}
+    100% {left: 0;}
+}
+.tips {
+  width: 300%;
+  height: 80px;
+  margin-left: 0;
+  padding-left: 0;
+  position: absolute;
+  list-style: none;
+  display: flex;
+  animation: tipsSlide 6s ease 0s infinite normal forwards running;
+}
+.tips li {
+  width: calc(100% / 3);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 150%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
 
 /* FAQマークの？の色を変える */
 .faq_mark {

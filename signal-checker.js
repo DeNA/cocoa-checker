@@ -267,6 +267,10 @@ function check_scan_running() {
 // 動作チェック関連
 // 動作環境テスト(パフォーマンス測定以外)
 async function check_enviroment(){
+  // 動画を再生して画面Offを抑止する
+  var v = document.getElementById('video');
+  v.play();
+
   // Androidかどうかを確認
   if (navigator.userAgent.indexOf("Android") == -1){
     change_window("boot_fail");

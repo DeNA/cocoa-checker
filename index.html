@@ -447,7 +447,7 @@
       <div class="text_16px_150p" style="text-align: left;">
         <ul>
           <li>接触確認アプリがインストールされているか確認してください。</li>
-          <li>BluetoothがONになっているか確認してください。</li>
+          <li>スマートフォンのBluetoothがONになっているか確認してください。</li>
           <li>COVID-19 接触通知システムがONになっているか確認してください。</li>
         </ul>
       </div>
@@ -480,29 +480,47 @@
       <div style="height: 40px"></div>
 
       <div class="heading_20px_150p_bold" style="text-align: left;">
-        Q. 質問文質問文質問文質問文
+        Q. 「COCOA動作チェッカー」を使うと何ができますか？
       </div>
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
-        回答回答回答回答回答回答回答回答回答回答
+        厚生労働省は新型コロナウイルス感染症の拡大防止のため、陽性者との接触の可能性を確認できるよう、「接触確認アプリ（COCOA）」を開発・運用しています。「COCOA動作チェッカー」は、このアプリ（COCOA）が接触確認のために発信している信号を確認するものです。お客様にアプリの画面を開かせることなく、セルフで確認いただくことができます。
       </div>
       <div style="height: 32px"></div>
 
       <div class="heading_20px_150p_bold" style="text-align: left;">
-        Q. 質問文質問文質問文質問文
+        Q. 「COCOA動作チェッカー」を利用するために必要なものは何ですか？
       </div>
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
-        回答回答回答回答回答回答回答回答回答回答
+        Android 6.0以降のスマートフォンまたはタブレットで動作します。ただし、円滑な動作にはAndroid 8.0以降であることが望ましいです。スマートフォンまたはタブレットのChromeは、最新版に更新してご利用ください。
       </div>
       <div style="height: 32px"></div>
 
       <div class="heading_20px_150p_bold" style="text-align: left;">
-        Q. 質問文質問文質問文質問文
+        Q. 「COCOA動作チェッカー」の利用には、費用などがかかりますか？
       </div>
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
-        回答回答回答回答回答回答回答回答回答回答
+        「COCOA動作チェッカー」自体は無料で利用することができます。ただし、利用するための機器や、通信にかかる費用は利用者がご負担ください。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 不明点などがある場合には、どこに問い合わせればよいですか？
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        メールで ******@dena.com 宛てにお問い合わせください。対応時間は平日10時～18時となります。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 「COCOA動作チェッカー」の開発に協力したい場合には、どのような手段がありますか？
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        「COCOA動作チェッカー」は、オープンソースソフトウェアとして公開しており、github上で issue や pull-request を送ることで貢献いただくことができます。ただし、ツールの性質上、大きな機能拡張は行わない予定であることから、お寄せいただいた pull-request や issue に対して、ご回答できかねる場合がありますことをご了承ください。最新の開発状況は、<a href="https://github.com/DeNA/cocoa-checker">https://github.com/DeNA/cocoa-checker</a>から確認することができます。
       </div>
       <div style="height: 32px"></div>
     </div>
@@ -534,31 +552,73 @@
       <div style="height: 40px"></div>
 
       <div class="heading_20px_150p_bold" style="text-align: left;">
-        Q. 質問文質問文質問文質問文
+        Q. 「COCOA動作チェッカー」を使うと何ができますか？
       </div>
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
-        回答回答回答回答回答回答回答回答回答回答
+        厚生労働省は新型コロナウイルス感染症の拡大防止のため、陽性者との接触の可能性を確認できるよう、「接触確認アプリ（COCOA）」を開発・運用しています。「COCOA動作チェッカー」は、このアプリ（COCOA）が接触確認のために発信している信号を確認するものです。これにより、スマートフォンに入っている「接触確認アプリ（COCOA）」が正常に機能しているかを確認することができます。
       </div>
       <div style="height: 32px"></div>
 
       <div class="heading_20px_150p_bold" style="text-align: left;">
-        Q. 質問文質問文質問文質問文
+        Q. どのようにしてCOCOAの動作状況を判断しているのですか？
       </div>
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
-        回答回答回答回答回答回答回答回答回答回答
+        「接触確認アプリ（COCOA）」は、1.5m以内に15分以上接近した（濃厚接触と呼びます）相手を判断するために、Bluetoothの信号をスマートフォンでやり取りし、接触の記録を残しています。このツールでは、接触記録を残すための信号を受信できれば、COCOAが動作していると判断しています。
       </div>
       <div style="height: 32px"></div>
 
       <div class="heading_20px_150p_bold" style="text-align: left;">
-        Q. 質問文質問文質問文質問文
+        Q. 「COCOA動作チェッカー」は個人情報などの情報を収集していますか？
       </div>
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
-        回答回答回答回答回答回答回答回答回答回答
+        「COCOA動作チェッカー」自体は、接触記録の内容を含め、一切の個人情報を収集していません。利用に関するお問い合わせをされる場合には、お問い合わせのメールに記載された情報のみをDeNAのプライバシーポリシーに沿って、お問い合わせへの回答・対応のために利用します。
       </div>
       <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 「接触確認アプリが正常に機能していることを確認できませんでした」と表示されましたが、どのように対応すればよいですか？
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        <ul>
+          <li>スマートフォンに「接触確認アプリ（COCOA）」がインストールされているか確認してください。もしインストールされていない場合は、こちらのQRコードからインストールしてください。</li>
+          <li>スマートフォンのBluetoothがONになっているか確認してください。</li>
+          <li>COVID-19 接触通知システムがONになっているか確認してください。
+            <ul>
+              <li>iPhoneの場合
+                <ul>
+                  <li>iOS バージョン13.7以降：<br />
+                    端末の［設定］-［接触通知］を開き、［接触のログ記録の状況］をONにしてください。
+                  </li>
+                  <li>iOSバージョン13.6以前：<br />
+                    ［設定］-［プライバシー］-［ヘルスケア］-［COVID19接触のログ記録］を開き、［接触のログ記録］をONに変更してください。
+                  </li>
+                </ul>
+              </li>
+              <li>Androidの場合
+                <ul>
+                  <li>［設定］-［Google］-［COVID-19接触通知システム］を開き、［接触通知システムを使用］をONに変更してください。</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>これらの点を確認しても動作が確認できない場合には、厚生労働省が設けているお問い合わせ窓口までお問い合わせください。お問い合わせ窓口は、<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/covid19_qa_kanrenkigyou_00009.html#Q8-1">厚生労働省のWebページ https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/covid19_qa_kanrenkigyou_00009.html#Q8-1 </a>から確認いただけます。</li>
+        </ul>
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 不明点などがある場合には、どこに問い合わせればよいですか？
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        メールで ******@dena.com 宛てにお問い合わせください。対応時間は平日10時～18時となります。
+      </div>
+      <div style="height: 32px"></div>
+
     </div>
     <div style="height: 40px"></div>
     <div class="touch_button" onclick="faq_window_toggle('');">

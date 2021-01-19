@@ -52,8 +52,8 @@ summary.debug {
 @media screen and (max-width:640px) {
   /*　画面サイズが640pxまではここを読み込む　*/
   :root {
-    --window-width: calc(100% - 24px * 2);
-    --window-width-narrow: calc(100% - 24px * 2);
+    --window-width: calc(100% - 16px * 2);
+    --window-width-narrow: calc(100%);
     --ul_align: column;
     --half_padding: 32px;
     --half_width: calc(100% - var(--half_padding) * 2);
@@ -62,6 +62,9 @@ summary.debug {
     --logo_sp: visible;
     --logo_pc_height: 0px;
     --logo_sp_height: 29px;
+  }
+  .heading_16px_150p_bold {
+    text-align: left;
   }
 }
 @media screen and (min-width:640px) {
@@ -77,6 +80,9 @@ summary.debug {
     --logo_sp: hidden;
     --logo_pc_height: 38px;
     --logo_sp_height: 0px;
+  }
+  .heading_16px_150p_bold {
+    text-align: center;
   }
 }
 .logo_pc {
@@ -121,7 +127,6 @@ summary.debug {
   font-weight: bold;
   font-size: 16px;
   line-height: 150%;
-  text-align: center;
 }
 .text_16px_150p {
   font-style: normal;

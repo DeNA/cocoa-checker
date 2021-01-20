@@ -58,10 +58,10 @@ summary.debug {
     --half_padding: 32px;
     --half_width: calc(100% - var(--half_padding) * 2);
     --full_width: calc(100% - var(--half_padding) * 2);
-    --logo_pc: hidden;
-    --logo_sp: visible;
-    --logo_pc_height: 0px;
-    --logo_sp_height: 29px;
+  }
+  .big_logo {
+    width: 225px;
+    height: 20px;
   }
   .heading_16px_150p_bold {
     text-align: left;
@@ -76,22 +76,14 @@ summary.debug {
     --half_padding: 20px;
     --half_width: calc(50% - var(--half_padding) * 2);
     --full_width: calc(100% - var(--half_padding) * 2);
-    --logo_pc: visible;
-    --logo_sp: hidden;
-    --logo_pc_height: 38px;
-    --logo_sp_height: 0px;
+  }
+  .big_logo {
+    width: 428px;
+    height: 38px;
   }
   .heading_16px_150p_bold {
     text-align: center;
   }
-}
-.logo_pc {
-  visibility: var(--logo_pc);
-  height: var(--logo_pc_height);
-}
-.logo_sp {
-  visibility: var(--logo_sp);
-  height: var(--logo_sp_height);
 }
 
 /* 文字のスタイル */

@@ -277,13 +277,20 @@ async function check_enviroment(){
     return;
   }
 
-  // window_retry(画面2_2)のエラー内容を一旦全部閉じる
-  document.getElementById("reason_1_header").style.display = 'none';
-  document.getElementById("reason_2_header").style.display = 'none';
-  document.getElementById("reason_3_header").style.display = 'none';
-  document.getElementById("reason_4_header").style.display = 'none';
-  document.getElementById("reason_5_header").style.display = 'none';
-  document.getElementById("reason_6_header").style.display = 'none';
+  // window_retry(画面2_2)のエラー内容を一旦全部非表示にする
+    // 非表示に変えつつアコーディオン表示の中身も閉じる作業
+    function close_accordion(target) {
+      var target_accordion = document.getElementById(target+'_header');
+      var target_content = document.getElementById(target+'_content');
+      target_accordion.style.display = 'none';
+      target_accordion.style.borderBottomRightRadius = '10px';
+      target_accordion.style.borderBottomLeftRadius = '10px';
+      target_content.style.display = 'none';
+    }
+  // 1～6を全部閉じる
+  for(var i=1; i<7; i++) {
+    close_accordion("reason_"+i);
+  }
 
   // Androidのバージョンを確認
   if ( parseFloat(navigator.userAgent.slice(navigator.userAgent.indexOf("Android")+8)) < 6 ) {

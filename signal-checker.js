@@ -37,6 +37,8 @@ function change_window(target_type) {
   // いったん全部隠す
   for (var i=0; i<windows_handle.length; i++) {
     windows_handle[i].style.visibility = 'hidden';
+    // 画面最上部まで戻す
+    windows_handle[i].scrollTop = 0;
   }
   // typeに応じて戻る画面を選ぶ
   switch (target_type) {
@@ -120,7 +122,7 @@ function toggle_accordion(target) {
 var windows_visible = 0;
 function toggle_visible() {
   // 画面番号をインクリメントする
-  if (windows_visible < 10) {
+  if (windows_visible < 11) {
     windows_visible++;
   } else {
     windows_visible = 0;

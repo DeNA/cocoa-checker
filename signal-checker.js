@@ -432,6 +432,9 @@ function set_detect_timer() {
   change_window("waiting_detect_criteria");
   // アニメーションを起動する
   //document.getElementById("frame_hand_prepare").style.animationPlayState = 'running';
+  // detect_failed画面のiPhone/Androidごとのアコーディオン表示を閉じる
+  document.getElementById("7_2_details_1").removeAttribute("open");
+  document.getElementById("7_2_details_2").removeAttribute("open");
   // 検知条件の算出をする関数をタイマーで仕掛ける
   // 2秒余分にするのは、端末からスマホを離して貰う時間確保のため
   setTimeout(threshold_calculation, (threshold_calculation_seconds + 2) * 1000);

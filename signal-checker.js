@@ -259,11 +259,30 @@ function check_scan_running() {
   if ( return_top_when_scan_stopped ) {
     // スキャン中にスキャンが止まったら
     if ( !(LEscanobject.active) ) {
-      // 問答無用で起動画面に戻す
-      change_window('operator');
+      // このチェッカーを停止して
       clearInterval(scan_running_checker);
+      // 閾値測定中の場合には
+      if (threshold_calculator) {
+        // 閾値判定処理をするタイマーをクリアする
+        clearTimeout(threshold_calculator);
+      }
+      // 動作判定中の場合には
+      if (running_detection) {
+        // タイムアウト時の処理をするタイマーをクリアする
+        clearTimeout(timeout_checker);
+      }
+      // スキャン停止を伝えるモーダルを開く
+      document.getElementById("stop_scan_popup").style.visibility = 'visible';
     }
   }
+}
+
+// スキャン停止時のモーダルを閉じて起動画面に戻す
+function stop_scan_popup_close(){
+  // モーダルを閉じて
+  document.getElementById("stop_scan_popup").style.visibility = 'hidden';
+  // 問答無用で起動画面に戻す
+  change_window('operator');
 }
 
 // 動作チェック関連
@@ -437,10 +456,11 @@ function set_detect_timer() {
   document.getElementById("7_2_details_2").removeAttribute("open");
   // 検知条件の算出をする関数をタイマーで仕掛ける
   // 2秒余分にするのは、端末からスマホを離して貰う時間確保のため
-  setTimeout(threshold_calculation, (threshold_calculation_seconds + 2) * 1000);
+  threshold_calculator = setTimeout(threshold_calculation, (threshold_calculation_seconds + 2) * 1000);
 }
 
 // 検知条件の算出
+var threshold_calculator;
 function threshold_calculation() {
   // 直近3秒の計測結果から、検知条件を判定する
   // 検知条件の初期値は-120dB

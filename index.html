@@ -30,6 +30,9 @@
       <div class="heading_16px_150p_bold">
         「起動する」ボタンを押し、<br />押下後に表示されるダイアログで「許可」を押してください。
       </div>
+      <div class="text_14px_150p_fv">
+        （施設等の利用にCOCOAの利用を強く推奨している施設が、導入確認のために本チェッカーを用いる場合は、必ず「よくある質問」と「ご利用にあたって」をご確認下さい）
+      </div>
       <div style="height: 40px"></div>
       <div class="touch_button" onclick="check_enviroment();">
         <div class="touch_button_inner">起動する</div>
@@ -260,7 +263,7 @@
       <div style="height: 24px"></div>
       <div class="text_16px_150p" style="text-align: center;">
         あなたと、あなたの大切な人を守るために。<br />
-        ここでは、スマートフォンに入っている「接触確認アプリ（COCOA）」が正常に機能しているかを確認することができます。
+        ここでは、スマートフォンに入っている「接触確認アプリ（COCOA）」が発する信号を用いて、アプリが正常に機能しているかを確認することができます。
       </div>
       <div style="height: 40px"></div>
       <div class="touch_button" onclick="set_detect_timer();">
@@ -501,6 +504,7 @@
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
         Android 6.0以降のスマートフォンまたはタブレットで動作します。スマートフォンまたはタブレットのChromeは、最新版に更新してご利用ください。<br />
+        <br />
         ※一部の機種では適切に判定ができないことが確認されています。これらの機種での利用は避けていただきますようお願いいたします。<br />
         利用非推奨端末(2021/01/25現在)：ASUS Nexus7(2013), Galaxy S7 edge
       </div>
@@ -512,6 +516,17 @@
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
         「COCOA動作チェッカー」自体は無料で利用することができます。ただし、利用するための機器や、通信にかかる費用は利用者がご負担ください。
+      </div>
+      <div style="height: 32px"></div>
+
+      <div class="heading_20px_150p_bold" style="text-align: left;">
+        Q. 施設等の利用にCOCOAの利用を強く推奨している施設で、利用確認のために「COCOA動作チェッカー」を用いても良いですか？
+      </div>
+      <div style="height: 8px"></div>
+      <div class="text_16px_150p" style="text-align: left;">
+        まず、「COCOAの利用の強い推奨」について、COCOAに対応するスマートフォンを持たない利用者が不利益とならないよう留意する必要があると考えます。<br />
+        その上で、強い推奨を行う場合には、COCOA自体の画面確認も同時に行うことや、「COCOA動作チェッカー」で動作確認が行えなかった場合の対応方法も用意いただくこともご検討いただくようお願いいたします。<br />
+        これは、「COCOA動作チェッカー」は、周囲のスマホが発信するCOCOAの信号の強度の変化から動作判定を行っていること、ごく一部の機種ではBluetoothの信号の強度が弱く測定されることから、正しくない判定（端末にかざしていない周囲のスマホからの信号の強度変化に反応して「動作している」と判定する、あるいは、端末にスマホをかざしても電波強度が十分に変化せず「動作していない」と判定する）をする可能性があるためです。
       </div>
       <div style="height: 32px"></div>
 
@@ -574,7 +589,8 @@
       </div>
       <div style="height: 8px"></div>
       <div class="text_16px_150p" style="text-align: left;">
-        「接触確認アプリ（COCOA）」は、1.5m以内に15分以上接近した（濃厚接触と呼びます）相手を判断するために、Bluetoothの信号をスマートフォンでやり取りし、接触の記録を残しています。このツールでは、接触記録を残すための信号を受信できれば、COCOAが動作していると判断しています。
+        「接触確認アプリ（COCOA）」は、1.5m以内に15分以上接近した（濃厚接触と呼びます）相手を判断するために、Bluetoothの信号をスマートフォンでやり取りし、接触の記録を残しています。<br />
+        この「COCOA動作チェッカー」では、接触記録を残すための信号を受信できれば、信号の内容いかんに関わらずCOCOAが動作していると判断しています（信号の内容は一切取得・処理していません）。
       </div>
       <div style="height: 32px"></div>
 
@@ -715,6 +731,8 @@
         Android 6.0 以上で動作するChrome（最新版） <br />
         <br />
         ※推奨環境以外でのご利用や、推奨環境下でもお客様のwebブラウザの設定によっては、ご利用できない、もしくは正しく表示されない場合がございます。その場合はサポート対象外となりますので予めご了承ください。<br />
+        ※一部の機種では適切に判定ができないことが確認されています。これらの機種での利用は避けていただきますようお願いいたします。<br />
+        利用非推奨端末(2021/01/25現在)：ASUS Nexus7(2013), Galaxy S7 edge<br />
         <br />
         ■JavaScriptについて<br />
         当サイトでは、JavaScriptを使用しています。お使いのブラウザでJavaScript機能を無効にされている場合、当サイトは正しく機能しません。ご覧になる際にはブラウザ設定でJavaScriptを有効にしてください。<br />

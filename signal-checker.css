@@ -63,7 +63,7 @@ summary.debug {
     width: 225px;
     height: 20px;
   }
-  .heading_16px_150p_bold {
+  .heading_16px_150p_bold, .text_14px_150p_fv {
     text-align: left;
   }
 }
@@ -81,7 +81,7 @@ summary.debug {
     width: 428px;
     height: 38px;
   }
-  .heading_16px_150p_bold {
+  .heading_16px_150p_bold, .text_14px_150p_fv {
     text-align: center;
   }
 }
@@ -127,14 +127,15 @@ summary.debug {
   line-height: 150%;
   text-align: left;
 }
-.text_14px_150p {
+.text_14px_150p,
+.text_14px_150p_fv {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 150%;
+}
+.text_14px_150p {
   text-align: left;
-  /* 枠との間を020px分空ける */
-/*  padding: var(--half_padding); */
 }
 
 /* 見出しの左脇に付ける線 */

@@ -177,7 +177,7 @@ summary.debug {
   width: 80%;
   padding: 0px;
   /* 境界線は黒で角を丸める */
-  border: 1px solid var(--black);
+  border: 1px solid var(--dark_gray);
   border-radius: 16px;
   /* 中身は左右センタリングする */
   text-align: center;
@@ -187,6 +187,10 @@ summary.debug {
   overflow-y: auto;
   /* 横のスクロールバーは消す */
   overflow-x: hidden;
+  /* 中身をセンタリングする */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 表示するオブジェクトを切り替えるための箱 */

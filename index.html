@@ -526,8 +526,8 @@
       <div class="text_16px_150p" style="text-align: left;">
         まず、「COCOAの利用の強い推奨」自体についてですが、COCOAに対応するスマートフォンを持たない利用者が不利益とならないよう留意する必要があると考えます。<br />
         <br />
-        留意をした上で、強い推奨を行う施設で利用される場合には、COCOA自体の画面確認も同時に行うことや、「COCOA動作チェッカー」で動作確認が行えなかった場合の対応方法も用意いただくこともご検討いただくようお願いいたします。<br />
-        これは、「COCOA動作チェッカー」は、周囲のスマホが発信するCOCOAの信号の強度の変化から動作判定を行っていること、ごく一部の機種ではBluetoothの信号の強度が弱く測定されることから、正しくない判定（端末にかざしていない周囲のスマホからの信号の強度変化に反応して「動作している」と判定する、あるいは、端末にスマホをかざしても電波強度が十分に変化せず「動作していない」と判定する）をする可能性があるためです。
+        留意をした上で、強い推奨を行う施設で利用される場合には、「COCOA動作チェッカー」が正しくない判定をする可能性があることから、COCOA自体の画面確認も同時に行うことや、「COCOA動作チェッカー」で動作確認が行えなかった場合の対応方法も用意いただくこともご検討いただくようお願いいたします。<br />
+        <small><small>正しくない動作の例 : 端末にかざしていないスマホの信号強度変化に反応して「動作している」と判定する（周囲のスマホ全てが発信するCOCOAの信号の強度の変化から動作判定を行うため）、端末にスマホをかざしても「動作していない」と判定する（ごく一部の機種ではBluetoothの信号の強度が弱く測定されることから、信号強度が十分に変化しないため）</small></small>
       </div>
       <div style="height: 32px"></div>
 
@@ -782,17 +782,19 @@
   </article>
 
   <article class="stop_scan_popup" id="stop_scan_popup">
-    <div style="height: 20px"></div>
-    <div class="window_box_content">
-      <div class="heading_20px_150p_bold" style="text-align: left;">
-        COCOA動作チェッカーが途中で終了したため、TOPページに戻ります。
+    <div>
+      <div style="height: 20px"></div>
+      <div class="window_box_content">
+        <div class="heading_20px_150p_bold" style="text-align: left;">
+          COCOA動作チェッカーが途中で終了したため、TOPページに戻ります。
+        </div>
       </div>
+      <div style="height: 40px"></div>
+      <div class="touch_button" onclick="stop_scan_popup_close();">
+        <div class="touch_button_inner">OK</div>
+      </div>
+      <div style="height: 20px"></div>
     </div>
-    <div style="height: 40px"></div>
-    <div class="touch_button" onclick="stop_scan_popup_close();">
-      <div class="touch_button_inner">OK</div>
-    </div>
-    <div style="height: 20px"></div>
   </article>
 
   <nav>

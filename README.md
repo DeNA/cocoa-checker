@@ -7,6 +7,8 @@ COCOA(Covid-19 Exposure Notification System in Japan) Signal Checker
 ## COCOA動作チェッカーとは
 
 - 新型コロナウイルス接触確認アプリ（COCOA）導⼊済みスマートフォンから、接触確認に用いる信号が出ているか確認できるシステムです。
+- Android 6.0以降のスマートフォン・タブレットから、本レポジトリのソースコードがgithub-pagesでそのまま反映される[特設サイト](https://dena.github.io/cocoa-checker/)を開いて、所定の設定をすることでご利用になれます。
+  - 特設サイトへのアクセスには、こちらのQRコードもご活用ください。 ![QRコード](manual/qr-code.png)
 - 機能の概要や利用方法は、PDF版の[操作マニュアル](https://dena.github.io/cocoa-checker/manual/manual.pdf)をご覧下さい。
 
 ## 新型コロナウイルス接触確認アプリ(COCOA)自体に関するお問い合わせについて

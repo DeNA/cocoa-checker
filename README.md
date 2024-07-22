@@ -4,6 +4,7 @@ COCOA(Covid-19 Exposure Notification System in Japan) Signal Checker
 - COCOAの普及を支援するために、端末からCOCOAの接触確認をする信号が発信されているか確認するためのツールです
 - [2020年11月より開発に取り組んでおり](https://dena.com/jp/article/003672)、[2021年1月に一般提供を開始](https://dena.com/jp/article/003673)しました。
 - Github pagesを用いた特設ページを継続するため、archived projectには変更しておりませんが、2021年12月に会社としてのメンテナンス・更新を終了しました。
+- 役割を終えているため、2024年7月にarchived projectに変更しました。
 
 ## COCOA動作チェッカーとは
 
@@ -20,6 +21,7 @@ COCOA(Covid-19 Exposure Notification System in Japan) Signal Checker
 - プログラム自体に対する改善提案は、githubレポジトリへの pull-request や、 issue を通じてお寄せくださいますようお願いいたします。
   - ただし、ツールの性質上、大きな機能拡張は行わない予定であることから、お寄せいただいた pull-request や issue に対して、ご回答できかねる場合がありますことをご了承ください。
 - 利用方法に関するご質問や、その他のご質問・ご要望についても、会社としてのメンテナンス・更新を終了していることから、githubレポジトリへのissue提出でご連絡いただきますようお願いいたします。
+- プロジェクトとしてメンテナンス・更新を終了いたしました。
 
 ## LICENSE
 
